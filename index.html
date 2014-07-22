@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="angular-float-labels.css" rel="stylesheet">
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="angular-float-labels.js"></script>
+  <script>
+    angular.module('myApp', ['angular-float-labels'])
+      .controller('myCtrl', function($scope) {
+
+      });
+  </script>
+</head>
+<body ng-app="myApp">
+  <div ng-controller="myCtrl">
+    <h3>Text</h3>
+    <input type="text" placeholder="Enter some text"/>
+    <h3>Email</h3>
+    <input type="email" placeholder="Enter your email"/>
+    <h3>Number</h3>
+    <input type="number" placeholder="Enter your favorite number of all time"/>
+    <h3>Url</h3>
+    <input type="url" placeholder="Enter your homepage"/>
+  </div>
+</body>
+</html>

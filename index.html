@@ -2,6 +2,8 @@
 <html>
 <head>
   <link href="angular-float-labels.css" rel="stylesheet">
+  <link href="angular-float-labels.bs3.css" rel="stylesheet">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="angular-float-labels.js"></script>
@@ -15,13 +17,13 @@
 <body ng-app="myApp">
   <div ng-controller="myCtrl">
     <h3>Text</h3>
-    <input type="text" placeholder="Enter some text"/>
+    <input type="text" placeholder="Enter some text" class="form-control"/>
     <h3>Email</h3>
-    <input type="email" placeholder="Enter your email"/>
+    <input type="email" placeholder="Enter your email" class="form-control"/>
     <h3>Number</h3>
-    <input type="number" placeholder="Enter your favorite number of all time"/>
+    <input type="number" placeholder="Enter your favorite number of all time" class="form-control"/>
     <h3>Url</h3>
-    <input type="url" placeholder="Enter your homepage"/>
+    <input type="url" placeholder="Enter your homepage" class="form-control"/>
   </div>
 </body>
 </html>

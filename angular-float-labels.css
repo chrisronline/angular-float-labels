@@ -20,7 +20,11 @@
 .angular-float-labels-label.toggled {
   display: block;
 }
-.angular-float-labels-label.toggled + .angular-float-labels-element {
+.selectize-control .angular-float-labels-label.toggled {
+  z-index: 2;
+}
+.angular-float-labels-label.toggled + .angular-float-labels-element,
+.selectize-control.multi .angular-float-labels-label.toggled + .angular-float-labels-element.has-items {
   padding-top: 15px;
   padding-bottom: 5px;
 }
@@ -28,8 +32,4 @@
 
 .angular-float-labels-label.focused {
   color: green;
-}
-.angular-float-labels-label, .angular-float-labels-element {
-  font-size: 16px;
-  font-family: 'Arial';
 }

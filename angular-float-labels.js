@@ -5,16 +5,14 @@
     .directive('placeholder', function($parse) {
       return {
         restrict: 'A',
-        require: 'ngModel',
-        link: function($scope, $element, $attrs, $ngModel) {
-          var wrapper = $('<span class="angular-float-labels-wrapper"></span>');
+        link: function($scope, $element, $attrs) {
           var label = $('<label class="angular-float-labels-label"></label').html($attrs.placeholder);
           var element = $element;
           var input = $element;
-          var parent = element.parent();
+          var parent = element.parent().addClass('angular-float-labels-wrapper');
           var index = element.index();
 
-          var selectize = _.has($attrs, 'selectize');
+          var selectize = $attrs.hasOwnProperty('selectize');
           var selectizeInstance;
           if (selectize) {
             selectizeInstance = element.data('selectize') || element.selectize;
@@ -34,14 +32,7 @@
           }
           function init() {
             input.addClass('angular-float-labels-element');
-            wrapper.append(label).append(input);
-            if (index === 0) {
-              parent.prepend(wrapper);
-            }
-            else {
-              wrapper.insertAfter(parent.children()[index - 1]);
-            }
-
+            input.before(label);
             input.on('input change', change);
             input.on('focus', focus);
             input.on('blur', blur);

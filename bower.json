@@ -1,6 +1,6 @@
 {
   "name": "angular-float-labels",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": [
     "angular-float-labels.js",
     "angular-float-labels.css"

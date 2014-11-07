@@ -26,7 +26,7 @@
           function showLabel() { label.addClass('toggled'); }
           function hideLabel() { label.removeClass('toggled'); }
           function change(e) {
-            input.val().length || (!$(this)[0].checkValidity() && !$(this).val().length)
+            input.val().length || (!$(this)[0].checkValidity() && $(this).val().length)
               ? showLabel()
               : hideLabel();
           }

@@ -21,12 +21,18 @@
             parent = element.find('.selectize-input').first();
           }
 
+          function isEmpty(value) {
+            if (value === null) return true;
+            if (value.hasOwnProperty('length')) return !!!value.length;
+            if (isNaN(value)) return true;
+            return false;
+          }
           function focus() { label.addClass('focused'); }
           function blur() { label.removeClass('focused'); }
           function showLabel() { label.addClass('toggled'); }
           function hideLabel() { label.removeClass('toggled'); }
           function change(e) {
-            input.val().length || (!$(this)[0].checkValidity() && $(this).val().length)
+            !isEmpty(input.val()) || (!$(this)[0].checkValidity() && isEmpty($(this).val()))
               ? showLabel()
               : hideLabel();
           }
@@ -44,7 +50,7 @@
           }
           function initSelectize() {
             function selectizeToggle(value) {
-              value && value.length ? showLabel() : hideLabel();
+              value && !isEmpty(value) ? showLabel() : hideLabel();
             }
             function selectizeToggleItems() {
               selectizeToggle(selectizeInstance.items);
@@ -69,7 +75,7 @@
           // Without this, the label does not appear in Canary
           setTimeout(function() {
             var initValue = $parse($attrs.ngModel)($scope);
-            initValue && initValue.length ? showLabel() : hideLabel();
+            initValue && !isEmpty(initValue) ? showLabel() : hideLabel();
           });
         }
       };

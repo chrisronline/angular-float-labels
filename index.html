@@ -6,9 +6,13 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
-  <script src="angular-float-labels.js"></script>
+  <!-- <script src="angular-float-labels.js"></script> -->
+  <script src="angular-float-labels.custom.js"></script>
   <script>
     angular.module('myApp', ['angular-float-labels'])
+      .config(function(floatLabelProvider) {
+        floatLabelProvider.setAttributeName('floatLabel');
+      })
       .controller('myCtrl', function($scope) {
 
       });
@@ -18,19 +22,19 @@
   <div ng-controller="myCtrl">
     <h3>Text</h3>
     <div class="group">
-      <input type="text" placeholder="Enter some text" class="form-control"/>
+      <input type="text" placeholder="Enter some text" float-label="Enter some text!" class="form-control"/>
     </div>
     <h3>Email</h3>
     <div class="group">
-      <input type="email" placeholder="Enter your email" class="form-control"/>
+      <input type="email" placeholder="Enter your email" float-label="Enter your email please!" class="form-control"/>
     </div>
     <h3>Number</h3>
     <div class="group">
-      <input type="number" placeholder="Enter your favorite number of all time" class="form-control"/>
+      <input type="number" placeholder="Enter your favorite number of all time" float-label="Favorite number!" class="form-control"/>
     </div>
     <h3>Url</h3>
     <div class="group">
-      <input type="url" placeholder="Enter your homepage" class="form-control"/>
+      <input type="url" placeholder="Enter your homepage" float-label="WHATS UR URL?!" class="form-control"/>
     </div>
   </div>
 </body>

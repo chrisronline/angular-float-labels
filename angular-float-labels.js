@@ -2,13 +2,14 @@
   'use strict';
 
   angular.module('angular-float-labels', [])
-    .directive('placeholder', function($parse) {
+    .directive('placeholder', ['$parse', function($parse) {
       return {
         restrict: 'A',
         link: function($scope, $element, $attrs) {
-          var label = $('<label class="angular-float-labels-label"></label').html($attrs.placeholder);
+          var label = $('<label class="angular-float-labels-label"></label>').html($attrs.placeholder);
           var element = $element;
           var input = $element;
+          element.wrap($('<span></span>'));
           var parent = element.parent().addClass('angular-float-labels-wrapper');
           var index = element.index();
 
@@ -73,5 +74,5 @@
           });
         }
       };
-    });
+    }]);
 })();

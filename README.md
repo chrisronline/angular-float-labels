@@ -32,7 +32,7 @@ If you do not want to the logic to trigger from the `placeholder` attribute, ple
 .config(function(floatLabelProvider) {
 		floatLabelProvider.setAttributeName('floatLabel');
 })
- ```
+```
 
 
 ### CSS
@@ -44,9 +44,28 @@ Example
 ---------
 Please view the [demo](http://www.chrisronline.com/angular-float-labels/index.html)
 
+Minification
+--------------------
+If you're using the Rails assets pipeline or UglifyJS, be sure to use
+v0.1.1 (or later), which includes annotation for the `$parse` dependency.
+For concatenated + minified Javascript with Angular >1.3, you can force
+function annotation checking with:
+
+```
+<!-- auto bootstrapping -->
+<div ng-app="myApp" ng-strict-di>
+```
+
+or
+
+```
+// manual bootstrapping
+angular.bootstrap(document.body, ['myApp'], { strictDi: true});
+```
 
 Release Notes
 ---------
+- v0.1.1 - Fix minification issues and auto-wrap input element
 - v0.1.0 - Add support for a custom attribute instead of `placeholder`
 - v0.0.7 - Fix validity check
 - v0.0.6 - see v0.0.5
